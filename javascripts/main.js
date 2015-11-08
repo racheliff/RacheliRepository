@@ -4,7 +4,7 @@ angular.module('MyApp', [])
 
     .controller('DemoCtrl', function ($scope){//, SimpleGithubUser, AdvancedGithubUser) {
         $scope.name = 'Racheli';
- /*   $scope.users = [];
+    $scope.users = [];
 
     $scope.fetchUsers = function () {
         $scope.users = [];
@@ -16,9 +16,9 @@ angular.module('MyApp', [])
                 $scope.users.push(user);
             });
         });
-    }*/
+    }
 })
-/*
+
 .factory('SimpleGithubUser', function ($http) {
     var apiUrl = 'https://api.github.com/';
     
@@ -74,4 +74,4 @@ angular.module('MyApp', [])
     };
     return AdvancedGithubUser;
 })
-*/
+
