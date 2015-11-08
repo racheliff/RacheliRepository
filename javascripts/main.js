@@ -2,11 +2,19 @@
 
 angular.module('MyApp', [])
 
-    .controller('DemoCtrl', function ($scope , SimpleGithubUser, AdvancedGithubUser) {
+    .controller('DemoCtrl', function ($scope, 'BirdsList' ){//, SimpleGithubUser, AdvancedGithubUser) {
         $scope.name = 'Racheli';
-    $scope.users = [];
+        
+        $scope.birds = [];
+        birds.forEach(function () {
+            var bird = new BirdsList();
+            bird.getProfile().then(function () {
+                $scope.birds.push(bird);
+            });
+        });
+    /*    $scope.users = [];
 
-    $scope.fetchUsers = function () {
+        $scope.fetchUsers = function () {
         $scope.users = [];
         var users = ['mhevery', 'igorminar', 'btford', 'substack', 'sindresorhus', 'n1k0', 'revolunet'];
 
@@ -15,8 +23,29 @@ angular.module('MyApp', [])
             user.getProfile().then(function () {
                 $scope.users.push(user);
             });
-        });
+        });*/
     }
+})
+
+.factory('BirdsList', function ($http) {
+    var apiUrl = 'https://prodhuntitems.s3.amazonaws.com/ShopicksTest/Animals/animals_collection.json';
+    
+    // instantiate our object
+    var BirdsList = function () {
+        this.profile = null;
+    };
+    // this method will fetch data from GH API and return a promise
+    BirdsList.prototype.getProfile = function () {
+    // Generally, javascript callbacks, like here the $http.get callback, change the value of the "this" variable inside callbacks so we need ot keep a reference to the current instance "this", and we do it with the following :
+        var self = this;
+        return $http.get(apiUrl).then(function (response) {
+            // we store the API result in user.profile. 
+            self.profile = response.data
+            // promises success should always return something in order to allow promise  chaining
+            return response;
+        });
+    };
+    return BirdsList;
 })
 
 .factory('SimpleGithubUser', function ($http) {
