@@ -2,7 +2,7 @@
 
 angular.module('MyApp', [])
 
-    .controller('DemoCtrl', function ($scope){//, SimpleGithubUser, AdvancedGithubUser) {
+    .controller('DemoCtrl', function ($scope , SimpleGithubUser, AdvancedGithubUser) {
         $scope.name = 'Racheli';
     $scope.users = [];
 
