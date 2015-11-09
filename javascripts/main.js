@@ -41,7 +41,7 @@ angular.module('MyApp', [])
         // we store the API result in user.profile. 
             var animalsData = response.data.Data;
             animalsData.forEach(function (animaleGroup) {
-                var animaleGroup = new AnimalGroup( animaleGroup.animale, animaleGroup.instances);
+                var animaleGroup = new AnimaleGroup( animaleGroup.animale, animaleGroup.instances);
                 animalsList.push(animaleGroup);
             });
             self.animals = animalsList;
