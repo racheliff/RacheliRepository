@@ -36,6 +36,20 @@
             <div class="event">{{ user.profile.events[0].type }} : {{ user.profile.events[0].repo.name }}</div>-->
         </li>
     </ul>
+    <div id="slides_control">
+    <div>
+      <carousel>
+        <slide ng-repeat="animale in animals" >
+          <img ng-src="{{animale.animaleGroup[0].imageUrl}}">
+          <img ng-src="{{animale.animaleGroup[1].imageUrl}}">
+          <div class="carousel-caption">
+            <h4>Slide {{$index+1}}</h4>
+          </div>
+        </slide>
+      </carousel>
+    </div>
+  </div>
+</div>
 </div>
 </section>
 
