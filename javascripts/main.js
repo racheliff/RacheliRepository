@@ -74,7 +74,7 @@ angular.module('MyApp', [])
             return response;
         });
     };*/
-    return animalesList;
+    return AnimalesList;
 })
 
 .factory('SimpleGithubUser', function ($http) {
