@@ -25,11 +25,11 @@
 
   <!--  <button ng-click="fetchUsers()">fetch some badass GitHub users data</button>-->
     <ul>
-        <li ng-class="{odd: $odd}" ng-repeat="animale in animales">
-            <img class="gravatar" ng-src="{{ animale.animalGroup[0].imageUrl }}" />
-            <img class="gravatar" ng-src="{{ animale.animalGroup[1].imageUrl}}" />
-            <img class="gravatar" ng-src="{{ animale.animalGroup[2].imageUrl }}" />
-            <img class="gravatar" ng-src="{{ animale.animalGroup[3].imageUrl }}" />
+        <li ng-class="{odd: $odd}" ng-repeat="animale in animals">
+            <img class="gravatar" ng-src="{{ animale.animaleGroup[0].imageUrl }}" />
+            <img class="gravatar" ng-src="{{ animale.animaleGroup[1].imageUrl}}" />
+            <img class="gravatar" ng-src="{{ animale.animaleGroup[2].imageUrl }}" />
+            <img class="gravatar" ng-src="{{ animale.animaleGroup[3].imageUrl }}" />
            <!-- <b>{{ user.profile.login }}</b> ({{ user.profile.location }})
             <div class="event">{{ user.profile.events[0].type }} : {{ user.profile.events[0].repo.name }}</div>-->
         </li>
