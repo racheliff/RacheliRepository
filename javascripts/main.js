@@ -30,7 +30,7 @@ angular.module('MyApp', [])
 .factory('AnimalsList', function ($http) {
     var apiUrl = 'https://prodhuntitems.s3.amazonaws.com/ShopicksTest/Animals/animals_collection.json';
     var self = this;
-    //var animalsList = [];
+    var animalsList = [];
  
     var AnimalsList = function () {
         this.animals = null;
