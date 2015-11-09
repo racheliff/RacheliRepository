@@ -24,20 +24,20 @@ angular.module('MyApp', [])
 
 .factory('AnimalesList', function ($http) {
     var apiUrl = 'https://prodhuntitems.s3.amazonaws.com/ShopicksTest/Animals/animals_collection.json';
-    
     var self = this;
-    $http.get(apiUrl).then(function (response) {
-        // we store the API result in user.profile. 
-        self.animalesData = response.data.Data
-        // promises success should always return something in order to allow promise  chaining
-        //return response;
-    });
-    
     var animalesList = [];
-    animalesList.forEach(function (animaleGroup) {
-        var animaleGroup = new AnimaleGroup( animaleGroup.animale, animaleGroup.instances);
-        animalesList.push(animaleGroup);
-    });
+ 
+    var AnimalesList = function () {
+        $http.get(apiUrl).then(function (response) {
+        // we store the API result in user.profile. 
+            var animalesData = response.data.Data;
+            animalesData.forEach(function (animaleGroup) {
+            var animaleGroup = new AnimaleGroup( animaleGroup.animale, animaleGroup.instances);
+            animalesList.push(animaleGroup);
+            self.animals = animalesList;
+            });
+        });
+    };
     
     var Animale = function (id, name, imageUrl) {
         this.id = id;
