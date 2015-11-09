@@ -37,7 +37,7 @@ angular.module('MyApp', [])
     }
     AnimalesList.prototype.getData = function () {
         var self = this;
-        $http.get(apiUrl).then(function (response) {
+        return $http.get(apiUrl).then(function (response) {
         // we store the API result in user.profile. 
             var animalesData = response.data.Data;
             animalesData.forEach(function (animaleGroup) {
