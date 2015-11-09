@@ -50,7 +50,7 @@ angular.module('MyApp', [])
         
         var animaleGroupArr = [];
         animaleGroup.forEach(function (animale) {
-            var animale = new Animale( animaleGroup.animale, animaleGroup);
+            var animale = new Animale( animale.id, animale.name, animale.imageUrl);
             animaleGroupArr.push(animale);
             this.animaleGroup = animaleGroupArr;
         });
@@ -74,7 +74,7 @@ angular.module('MyApp', [])
             return response;
         });
     };*/
-    return AnimalesList;
+    return animalesList;
 })
 
 .factory('SimpleGithubUser', function ($http) {
