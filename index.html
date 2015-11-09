@@ -33,7 +33,12 @@
           <table>
             <tbody>
             <tr>
-              <td><img width="198px" height="198px" ng-src="{{animale.animaleGroup[0].imageUrl}}"><p>{{animale.animaleGroup[0].id}}</p><p>{{animale.animaleGroup[0].name}}</p></td>
+              <td>
+                <div class="animale_image">
+                  <img width="198px" height="198px" ng-src="{{animale.animaleGroup[0].imageUrl}}">
+                  <h2><span>{{animale.animaleGroup[0].id}}<br />{{animale.animaleGroup[0].name}}</span></h2>
+                  </div>
+                  </td>
               <td><img width="198px" height="198px" ng-src="{{animale.animaleGroup[1].imageUrl}}"></td>
             </tr>
             <tr>
