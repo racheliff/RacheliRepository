@@ -32,7 +32,9 @@ angular.module('MyApp', [])
     var self = this;
     var animalesList = [];
  
-    var AnimalesList = function () {}
+    var AnimalesList = function () {
+        this.animals = null;
+    }
     AnimalesList.prototype.getData = function () {
         $http.get(apiUrl).then(function (response) {
         // we store the API result in user.profile. 
