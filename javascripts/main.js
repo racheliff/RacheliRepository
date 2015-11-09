@@ -2,14 +2,14 @@
 
 angular.module('MyApp', [])
 
-    .controller('DemoCtrl', function ($scope, AnimalesList ){//, SimpleGithubUser, AdvancedGithubUser) {
+    .controller('DemoCtrl', function ($scope, AnimalsList ){//, SimpleGithubUser, AdvancedGithubUser) {
        /* $scope.name = 'Racheli';*/
         
         //$scope.animales = new AnimalesList();
         
-        var a = new AnimalesList();
+        var a = new AnimalsList();
         a.getData().then(function () {
-            $scope.animales = a.animals;
+            $scope.animals = a.animals;
         });
       
     /*    $scope.users = [];
@@ -27,24 +27,24 @@ angular.module('MyApp', [])
     
 })
 
-.factory('AnimalesList', function ($http) {
+.factory('AnimalsList', function ($http) {
     var apiUrl = 'https://prodhuntitems.s3.amazonaws.com/ShopicksTest/Animals/animals_collection.json';
     var self = this;
-    var animalesList = [];
+    //var animalsList = [];
  
-    var AnimalesList = function () {
+    var AnimalsList = function () {
         this.animals = null;
     }
-    AnimalesList.prototype.getData = function () {
+    AnimalsList.prototype.getData = function () {
         var self = this;
         return $http.get(apiUrl).then(function (response) {
         // we store the API result in user.profile. 
-            var animalesData = response.data.Data;
-            animalesData.forEach(function (animaleGroup) {
-                var animaleGroup = new AnimaleGroup( animaleGroup.animale, animaleGroup.instances);
-                animalesList.push(animaleGroup);
+            var animalsData = response.data.Data;
+            animalsData.forEach(function (animaleGroup) {
+                var animaleGroup = new AnimalGroup( animaleGroup.animale, animaleGroup.instances);
+                animalsList.push(animaleGroup);
             });
-            self.animals = animalesList;
+            self.animals = animalsList;
             // promises success should always return something in order to allow promise  chaining
             return response;
         });
@@ -68,7 +68,7 @@ angular.module('MyApp', [])
         this.animaleGroup = animaleGroupArr;
     };
     
-    return AnimalesList;
+    return AnimalsList;
 })
 
 .factory('SimpleGithubUser', function ($http) {
