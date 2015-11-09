@@ -2,7 +2,7 @@
 
 angular.module('MyApp', [])
 
-    .controller('DemoCtrl', function ($scope, 'AnimalesList' ){//, SimpleGithubUser, AdvancedGithubUser) {
+    .controller('DemoCtrl', function ($scope, AnimalesList ){//, SimpleGithubUser, AdvancedGithubUser) {
        /* $scope.name = 'Racheli';*/
         
         $scope.animales = new AnimalesList();
