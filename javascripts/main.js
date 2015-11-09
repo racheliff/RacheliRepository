@@ -1,6 +1,6 @@
 
 
-angular.module('MyApp', [])
+angular.module('MyApp', ['ui.bootstrap'])
 
     .controller('DemoCtrl', function ($scope, AnimalsList ){//, SimpleGithubUser, AdvancedGithubUser) {
        /* $scope.name = 'Racheli';*/
