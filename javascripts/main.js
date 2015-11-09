@@ -5,7 +5,12 @@ angular.module('MyApp', [])
     .controller('DemoCtrl', function ($scope, AnimalesList ){//, SimpleGithubUser, AdvancedGithubUser) {
        /* $scope.name = 'Racheli';*/
         
-        $scope.animales = new AnimalesList();
+        //$scope.animales = new AnimalesList();
+        
+        var a = new AnimalesList();
+        a.getData().then(function () {
+            $scope.animales = a.animals;
+        });
       
     /*    $scope.users = [];
 
@@ -27,15 +32,18 @@ angular.module('MyApp', [])
     var self = this;
     var animalesList = [];
  
-    var AnimalesList = function () {
+    var AnimalesList = function () {}
+    AnimalesList.prototype.getData = function () {
         $http.get(apiUrl).then(function (response) {
         // we store the API result in user.profile. 
             var animalesData = response.data.Data;
             animalesData.forEach(function (animaleGroup) {
-            var animaleGroup = new AnimaleGroup( animaleGroup.animale, animaleGroup.instances);
-            animalesList.push(animaleGroup);
-            self.animals = animalesList;
+                var animaleGroup = new AnimaleGroup( animaleGroup.animale, animaleGroup.instances);
+                animalesList.push(animaleGroup);
             });
+            self.animals = animalesList;
+            // promises success should always return something in order to allow promise  chaining
+            return response;
         });
     };
     
@@ -52,28 +60,11 @@ angular.module('MyApp', [])
         animaleGroup.forEach(function (animale) {
             var animale = new Animale( animale.id, animale.name, animale.imageUrl);
             animaleGroupArr.push(animale);
-            this.animaleGroup = animaleGroupArr;
         });
-    };
         
-    // instantiate our object
- /*   var BirdsList = function () {
-        this.profile = null;
+        this.animaleGroup = animaleGroupArr;
     };
-    // this method will fetch data from GH API and return a promise
-    BirdsList.prototype.getProfile = function () {
-    // Generally, javascript callbacks, like here the $http.get callback, change the value of the "this" variable inside callbacks so we need ot keep a reference to the current instance "this", and we do it with the following :
-        var self = this;
-        return $http.get(apiUrl).then(function (response) {
-            // we store the API result in user.profile. 
-            self.profile = response.data.Data[0].animale
-            instances[0].imageUrl
-            instances[0].name
-            instances[0].id
-            // promises success should always return something in order to allow promise  chaining
-            return response;
-        });
-    };*/
+    
     return AnimalesList;
 })
 
