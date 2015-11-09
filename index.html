@@ -26,7 +26,7 @@
     <section class="main-content"><div ng-app="MyApp" ng-controller="DemoCtrl">
 
   <!--  <button ng-click="fetchUsers()">fetch some badass GitHub users data</button>-->
-    <ul>
+   <!-- <ul>
         <li ng-class="{odd: $odd}" ng-repeat="animale in animals">
             <img class="gravatar" ng-src="{{ animale.animaleGroup[0].imageUrl }}" />
             <img class="gravatar" ng-src="{{ animale.animaleGroup[1].imageUrl}}" />
@@ -35,13 +35,23 @@
            <!-- <b>{{ user.profile.login }}</b> ({{ user.profile.location }})
             <div class="event">{{ user.profile.events[0].type }} : {{ user.profile.events[0].repo.name }}</div>-->
         </li>
-    </ul>
+    </ul>-->
     <div id="slides_control">
     <div>
       <carousel>
         <slide ng-repeat="animale in animals" >
-          <img width="198px" height="198px" ng-src="{{animale.animaleGroup[0].imageUrl}}">
-          <img width="198px" height="198px" ng-src="{{animale.animaleGroup[1].imageUrl}}">
+          <table>
+            <tbody>
+            <tr>
+              <td><img width="198px" height="198px" ng-src="{{animale.animaleGroup[0].imageUrl}}"></td>
+              <td><img width="198px" height="198px" ng-src="{{animale.animaleGroup[1].imageUrl}}"></td>
+            </tr>
+            <tr>
+              <td><img width="198px" height="198px" ng-src="{{animale.animaleGroup[2].imageUrl}}"></td>
+              <td><img width="198px" height="198px" ng-src="{{animale.animaleGroup[3].imageUrl}}"></td>
+            </tr>
+            </tbody>
+          </table>
           <div class="carousel-caption">
             <h4>Slide {{$index+1}}</h4>
           </div>
