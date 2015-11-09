@@ -19,7 +19,7 @@ angular.module('MyApp', [])
                 $scope.users.push(user);
             });
         });*/
-    }
+    
 })
 
 .factory('AnimalesList', function ($http) {
