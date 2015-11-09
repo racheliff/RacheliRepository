@@ -2,16 +2,11 @@
 
 angular.module('MyApp', [])
 
-    .controller('DemoCtrl', function ($scope, 'BirdsList' ){//, SimpleGithubUser, AdvancedGithubUser) {
-        $scope.name = 'Racheli';
+    .controller('DemoCtrl', function ($scope, 'AnimalesList' ){//, SimpleGithubUser, AdvancedGithubUser) {
+       /* $scope.name = 'Racheli';*/
         
-        $scope.birds = [];
-        birds.forEach(function () {
-            var bird = new BirdsList();
-            bird.getProfile().then(function () {
-                $scope.birds.push(bird);
-            });
-        });
+        $scope.animales = new AnimalesList();
+      
     /*    $scope.users = [];
 
         $scope.fetchUsers = function () {
@@ -27,11 +22,42 @@ angular.module('MyApp', [])
     }
 })
 
-.factory('BirdsList', function ($http) {
+.factory('AnimalesList', function ($http) {
     var apiUrl = 'https://prodhuntitems.s3.amazonaws.com/ShopicksTest/Animals/animals_collection.json';
     
+    var self = this;
+    $http.get(apiUrl).then(function (response) {
+        // we store the API result in user.profile. 
+        self.animalesData = response.data.Data
+        // promises success should always return something in order to allow promise  chaining
+        //return response;
+    });
+    
+    var animalesList = [];
+    animalesList.forEach(function (animaleGroup) {
+        var animaleGroup = new AnimaleGroup( animaleGroup.animale, animaleGroup.instances);
+        animalesList.push(animaleGroup);
+    });
+    
+    var Animale = function (id, name, imageUrl) {
+        this.id = id;
+        this.name = name;
+        this.imageUrl = imageUrl;
+    };
+    
+    var AnimaleGroup = function (name, animaleGroup) {
+        this.name = name;
+        
+        var animaleGroupArr = [];
+        animaleGroup.forEach(function (animale) {
+            var animale = new Animale( animaleGroup.animale, animaleGroup);
+            animaleGroupArr.push(animale);
+            this.animaleGroup = animaleGroupArr;
+        });
+    };
+        
     // instantiate our object
-    var BirdsList = function () {
+ /*   var BirdsList = function () {
         this.profile = null;
     };
     // this method will fetch data from GH API and return a promise
@@ -40,12 +66,15 @@ angular.module('MyApp', [])
         var self = this;
         return $http.get(apiUrl).then(function (response) {
             // we store the API result in user.profile. 
-            self.profile = response.data
+            self.profile = response.data.Data[0].animale
+            instances[0].imageUrl
+            instances[0].name
+            instances[0].id
             // promises success should always return something in order to allow promise  chaining
             return response;
         });
-    };
-    return BirdsList;
+    };*/
+    return animalesList;
 })
 
 .factory('SimpleGithubUser', function ($http) {
