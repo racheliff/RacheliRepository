@@ -59,7 +59,7 @@ angular.module('MyApp', ['ui.bootstrap'])
     };
 })
 .directive('customCarousel', function(){
-    var template= '<carousel> <slide ng-repeat="animale in animals" active="animale.active"><img ng-src="{{animale.animaleGroup[0].imageUrl}}"><div class="carousel-caption"><h4>Slide {{$index+1}}</h4> </div>  </slide> </carousel>';
+    var template= '<carousel> <slide ng-repeat="animale in animals" active="$index == 0"><img ng-src="{{animale.animaleGroup[0].imageUrl}}"><div class="carousel-caption"><h4>Slide {{$index+1}}</h4> </div>  </slide> </carousel>';
    
     function link(scope){
         
