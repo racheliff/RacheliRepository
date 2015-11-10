@@ -33,7 +33,7 @@
           <table>
             <tbody>
             <tr>
-              <td ng-repeat="animaleGroup in animale.animaleGroup | startFrom: 0 | limitTo: 1">
+              <td ng-repeat="animaleGroup in animale.animaleGroup | slice:0:1">
                 <div class="animale_image">
                   <img width="198px" height="198px" ng-src="{{animaleGroup.imageUrl}}">
                   <h4><span>{{animaleGroup.id}}<br />{{animaleGroup.name}}</span></h4>
