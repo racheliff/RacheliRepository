@@ -261,11 +261,12 @@ td, th {
   border: 1px solid #ccc; 
   text-align: left; 
 }
+@media screen and (min-width: 64em){
 #slides_control{
   width:400px;
   height:400px;
   margin: 0 auto;
-}
+}}
 @media screen and (max-width: 768px) {
   #slides_control{
     background-color:black;
