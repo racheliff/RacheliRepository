@@ -8,9 +8,8 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-   <link rel='stylesheet prefetch' href='//codepen.io/assets/reset/reset.css'><link rel='stylesheet prefetch' href='//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
- <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>-->
+    <link rel='stylesheet prefetch' href='//codepen.io/assets/reset/reset.css'><link rel='stylesheet prefetch' href='//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
   	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
     <script src="javascripts/main.js"></script>
   </head>
@@ -25,8 +24,7 @@
 
     <section class="main-content">
       <div ng-app="MyApp" ng-controller="DemoCtrl">
-
-    <div id="slides_control">
+        <div id="slides_control">
   
       <carousel>
         <slide ng-repeat="animale in animals" >
@@ -39,7 +37,6 @@
                   <h4><span>{{animaleGroup.id}}<br />{{animaleGroup.name}}</span></h4>
                 </div>
               </td>
-              <!--<td><img width="198px" height="198px" ng-src="{{animale.animaleGroup[1].imageUrl}}"></td>-->
             </tr>
             <tr>
              <td ng-repeat="animaleGroup in animale.animaleGroup | slice:2:4">
@@ -51,17 +48,12 @@
             </tr>
             </tbody>
           </table>
-         <!-- <div class="carousel-caption">
-            <h4>Slide {{$index+1}}</h4>
-          </div>-->
         </slide>
       </carousel>
    
   </div>
-</div>
-</div>
-</section>
-
+      </div>
+    </section>
   
   </body>
 </html>
