@@ -290,6 +290,12 @@ td, th {
    background: rgba(0, 0, 0, 0.7);
    padding: 10px; 
 }
+.carousel-control .icon-prev:before {
+    content: '' !important;
+}
+.carousel-control .icon-next:before {
+    content: '' !important;
+}
 .icon-prev {
   width: 48px;
   height: 48px;
