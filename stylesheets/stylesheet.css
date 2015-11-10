@@ -275,8 +275,8 @@ td, th {
    width: 100%; /* for IE 6 */
 }
 .main-content h4 { 
-   position: absolute; 
-   top: 21%; 
+   position: relative; 
+   top: -120px; 
    left: 4%; 
    width: 100%; 
 }
