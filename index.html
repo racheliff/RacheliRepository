@@ -42,8 +42,12 @@
               <!--<td><img width="198px" height="198px" ng-src="{{animale.animaleGroup[1].imageUrl}}"></td>-->
             </tr>
             <tr>
-              <td><img width="198px" height="198px" ng-src="{{animale.animaleGroup[2].imageUrl}}"></td>
-              <td><img width="198px" height="198px" ng-src="{{animale.animaleGroup[3].imageUrl}}"></td>
+             <td ng-repeat="animaleGroup in animale.animaleGroup | slice:2:4">
+                <div class="animale_image">
+                  <img width="198px" height="198px" ng-src="{{animaleGroup.imageUrl}}">
+                  <h4><span>{{animaleGroup.id}}<br />{{animaleGroup.name}}</span></h4>
+                </div>
+              </td>
             </tr>
             </tbody>
           </table>
