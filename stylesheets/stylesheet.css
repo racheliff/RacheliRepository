@@ -274,13 +274,13 @@ td, th {
    position: relative; 
    width: 100%; /* for IE 6 */
 }
-.main-content h2 { 
+.main-content h4 { 
    position: absolute; 
-   top: 50%; 
-   left: 0; 
+   top: 22%; 
+   left: 2%; 
    width: 100%; 
 }
-.main-content h2 span { 
+.main-content h4 span { 
    color: white; 
    font: bold 24px/45px Helvetica, Sans-Serif; 
    letter-spacing: -1px;  
