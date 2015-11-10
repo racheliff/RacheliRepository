@@ -2,50 +2,29 @@
 
 angular.module('MyApp', ['ui.bootstrap'])
 
-    .controller('DemoCtrl', function ($scope, AnimalsList ){//, SimpleGithubUser, AdvancedGithubUser) {
-       /* $scope.name = 'Racheli';*/
-        
-        //$scope.animales = new AnimalesList();
-        
-        var a = new AnimalsList();
-        a.getData().then(function () {
-            $scope.animals = a.animals;
-        });
-      
-    /*    $scope.users = [];
-
-        $scope.fetchUsers = function () {
-        $scope.users = [];
-        var users = ['mhevery', 'igorminar', 'btford', 'substack', 'sindresorhus', 'n1k0', 'revolunet'];
-
-        users.forEach(function (userName) {
-            var user = new AdvancedGithubUser(userName);
-            user.getProfile().then(function () {
-                $scope.users.push(user);
-            });
-        });*/
-    
+.controller('DemoCtrl', function ($scope, AnimalsList ){
+    var animalsFactory = new AnimalsList();
+    animalsFactory.getData().then(function () {
+        $scope.animals = animalsFactory.animals;
+    });
 })
 
 .factory('AnimalsList', function ($http) {
     var apiUrl = 'https://prodhuntitems.s3.amazonaws.com/ShopicksTest/Animals/animals_collection.json';
     var self = this;
     var animalsList = [];
- 
-    var AnimalsList = function () {
-        this.animals = null;
-    }
+    
     AnimalsList.prototype.getData = function () {
         var self = this;
         return $http.get(apiUrl).then(function (response) {
-        // we store the API result in user.profile. 
+            // we store the API result in AnimalsList.animals. 
             var animalsData = response.data.Data;
             animalsData.forEach(function (animaleGroup) {
                 var animaleGroup = new AnimaleGroup( animaleGroup.animale, animaleGroup.instances);
                 animalsList.push(animaleGroup);
             });
             self.animals = animalsList;
-            // promises success should always return something in order to allow promise  chaining
+            // promises success should always return something in order to allow promise chaining
             return response;
         });
     };
@@ -67,6 +46,10 @@ angular.module('MyApp', ['ui.bootstrap'])
         
         this.animaleGroup = animaleGroupArr;
     };
+    
+    var AnimalsList = function () {
+        this.animals = null;
+    }
     
     return AnimalsList;
 })
