@@ -28,9 +28,8 @@
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
  
   <ol class="carousel-indicators">
-    <li ng-repeat="animale in animals" data-target="#myCarousel" data-slide-to="{{$index}}" ng-class="{\'active\': $index==0}"></li>
+    <li ng-repeat="animale in animals" data-target="#myCarousel" data-slide-to="$index" ng-class="{\'active\': $index==0}"></li>
   </ol>
-
   
   <div class="carousel-inner" role="listbox">
     <div ng-repeat="animale in animals"  class="item" ng-class="{\'active\': $index==0}">
