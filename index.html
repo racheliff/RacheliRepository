@@ -24,8 +24,35 @@
 
     <section class="main-content">
       <div id="slides_control" ng-app="MyApp" ng-controller="DemoCtrl">
+           <div id="myCarousel" class="carousel slide" data-ride="carousel">
+ 
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+  </ol>
+  
+  <div class="carousel-inner" role="listbox">
+    <div class="item" class="active">
+       <table>
+          <div class="animale_image">
+                  <img width="198px" height="198px" ng-src="{{animales.animaleGroup[0].imageUrl}}">
+                  <h4><span>{{animales.animaleGroup[0].id}}<br />{{animales.animaleGroup[0].name}}</span></h4>
+                </div>
+          </table>
+    </div>
+  </div>
+
+  
+  <a ng-non-bindable class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a ng-non-bindable class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
         
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+     <!--   <div id="myCarousel" class="carousel slide" data-ride="carousel">
  
   <ol class="carousel-indicators">
     <li ng-repeat="animale in animals" data-target="#myCarousel" data-slide-to="{{$index}}" ng-class="{\'active\': $index==0}"></li>
@@ -57,15 +84,15 @@
   </div>
 
   
-<!--  <a ng-non-bindable class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+  <a ng-non-bindable class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
   <a ng-non-bindable class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
-  </a>-->
-</div>
+  </a>
+</div>-->
         
       <carousel>
         <slide ng-repeat="animale in animals" >
