@@ -24,7 +24,51 @@
 
     <section class="main-content">
       <div id="slides_control" ng-app="MyApp" ng-controller="DemoCtrl">
-      <carousel>
+        
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li ng-repeat="animale in animals" data-target="#myCarousel" data-slide-to="{{$index}}" ng-class="{\'active\': $index==0}"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div ng-repeat="animale in animals"  class="item" ng-class="{\'active\': $index==0}">
+       <table>
+            <tbody>
+            <tr>
+              <td ng-repeat="animaleGroup in animale.animaleGroup | slice:0:2">
+                <div class="animale_image">
+                  <img width="198px" height="198px" ng-src="{{animaleGroup.imageUrl}}">
+                  <h4><span>{{animaleGroup.id}}<br />{{animaleGroup.name}}</span></h4>
+                </div>
+              </td>
+            </tr>
+            <tr>
+             <td ng-repeat="animaleGroup in animale.animaleGroup | slice:2:4">
+                <div class="animale_image">
+                  <img width="198px" height="198px" ng-src="{{animaleGroup.imageUrl}}">
+                  <h4><span>{{animaleGroup.id}}<br />{{animaleGroup.name}}</span></h4>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+        
+    <!--  <carousel>
         <slide ng-repeat="animale in animals" >
           <table>
             <tbody>
@@ -47,7 +91,7 @@
             </tbody>
           </table>
         </slide>
-      </carousel>
+      </carousel>-->
       </div>
     </section>
   </body>
