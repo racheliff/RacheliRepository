@@ -7,10 +7,14 @@ angular.module('MyApp', ['ngAnimate'])//'ui.bootstrap',
     animalsFactory.getData().then(function () {
         $scope.animals = animalsFactory.animals;
         $scope.images = [];
-        $scope.images[0] = $scope.animals[0].animaleGroup[0].imageUrl;
-        $scope.images[1] = $scope.animals[1].animaleGroup[0].imageUrl;
-        $scope.images[2] = $scope.animals[2].animaleGroup[0].imageUrl;
-        $scope.images[3] = $scope.animals[3].animaleGroup[0].imageUrl;
+        $scope.images[0] = {};
+        $scope.images[0].src = $scope.animals[0].animaleGroup[0].imageUrl;
+        $scope.images[1] = {};
+        $scope.images[1].src = $scope.animals[1].animaleGroup[0].imageUrl;
+        $scope.images[2] = {};
+        $scope.images[2].src = $scope.animals[2].animaleGroup[0].imageUrl;
+        $scope.images[3] = {};
+        $scope.images[3].src = $scope.animals[3].animaleGroup[0].imageUrl;
     });
 })
 .directive('slider', function ($timeout) {
