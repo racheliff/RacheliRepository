@@ -1,6 +1,6 @@
 
 
-angular.module('MyApp', ['ui.bootstrap'])
+angular.module('MyApp', ['ui.bootstrap','ngAnimate'])
 
 .controller('DemoCtrl', function ($scope, AnimalsList ){
     var animalsFactory = new AnimalsList();
