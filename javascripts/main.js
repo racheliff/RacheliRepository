@@ -37,6 +37,7 @@ angular.module('MyApp', ['ngAnimate'])//'ui.bootstrap',
 		};
 		
 		scope.$watch('currentIndex',function(){
+			if(scope.images == undefined) return;
 			scope.images.forEach(function(image){
 				image.visible=false;
 			});
