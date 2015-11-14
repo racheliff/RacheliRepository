@@ -6,8 +6,62 @@ angular.module('MyApp', ['ui.bootstrap'])
     var animalsFactory = new AnimalsList();
     animalsFactory.getData().then(function () {
         $scope.animals = animalsFactory.animals;
+        $scope.images = [];
+        $scope.images[0] = $scope.animals.animalsGroup[0].imageUrl;
+        $scope.images[1] = $scope.animals.animalsGroup[1].imageUrl;
+        $scope.images[2] = $scope.animals.animalsGroup[2].imageUrl;
+        $scope.images[3] = $scope.animals.animalsGroup[3].imageUrl;
     });
 })
+.directive('slider', function ($timeout) {
+  return {
+    restrict: 'E',
+	replace: true,
+	scope:{
+		images: '='
+	},
+    link: function (scope, elem, attrs) {
+	
+		scope.currentIndex=0;
+
+		scope.next=function(){
+			scope.currentIndex<scope.images.length-1?scope.currentIndex++:scope.currentIndex=0;
+		};
+		
+		scope.prev=function(){
+			scope.currentIndex>0?scope.currentIndex--:scope.currentIndex=scope.images.length-1;
+		};
+		
+		scope.$watch('currentIndex',function(){
+			scope.images.forEach(function(image){
+				image.visible=false;
+			});
+			scope.images[scope.currentIndex].visible=true;
+		});
+		
+		/* Start: For Automatic slideshow*/
+		
+		var timer;
+		
+		var sliderFunc=function(){
+			timer=$timeout(function(){
+				scope.next();
+				timer=$timeout(sliderFunc,5000);
+			},5000);
+		};
+		
+		sliderFunc();
+		
+		scope.$on('$destroy',function(){
+			$timeout.cancel(timer);
+		});
+		
+		/* End : For Automatic slideshow*/
+		
+    },
+	templateUrl:'sliderTemplate.html'
+  }
+});
 
 .factory('AnimalsList', function ($http) {
     var apiUrl = 'https://prodhuntitems.s3.amazonaws.com/ShopicksTest/Animals/animals_collection.json';
