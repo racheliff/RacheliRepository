@@ -61,7 +61,7 @@ angular.module('MyApp', ['ngAnimate'])//'ui.bootstrap',
     },
 	templateUrl:'sliderTemplate.html'
   }
-});
+})
 
 .factory('AnimalsList', function ($http) {
     var apiUrl = 'https://prodhuntitems.s3.amazonaws.com/ShopicksTest/Animals/animals_collection.json';
