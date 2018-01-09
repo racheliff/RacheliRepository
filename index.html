@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src='https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js'></script>
+<link rel="stylesheet" type="text/css" href="index.css">
+<div class="container">
+    <div>
+        <div id="div1">
+            <canvas id="canvas">Sorry, no canvas available</canvas>
+        </div>
+        <div class="upload_form_cont">
+            <div id="fileinfo">
+                <div id="filename"></div>
+                <div id="filetype"></div>
+                <div id="filedim"></div>
+            </div>
+            <img id="preview"/>
+        </div>
+    </div>
+    <div >
+        <form >
+            <div><input type="file" name="image_file" id="image_file" onchange="fileSelected();" /></div>
+            <p>צבע ראשון:
+            </p>
+            <input id="c1" type="color" onchange="drawText()">
+            <br>
+            <p>צבע שני:</p>
+            <input id="c2" type="color">
+            <br>
+            <p>גובה:</p>
+            <input id="inputTop" type="number" value="-10" onmouseup="drawText()"
+                   onkeyup="drawText()">
+            <br>
+            <p> טקסט:</p>
+
+            <input id="inputText" type="text" value="הסרת שיער בהשתתפות קופת החולים" onkeyup="drawText()">
+            <br>
+            <p> פונט:</p>
+            <input id="inputFont" type="text" value="TYPOGRAPH2BLACK" onkeyup="drawText()">
+            <br>
+            <p>  גודל פונט:</p>
+            <input id="inputFontSize" type="number" value="44"
+                   onmouseup="drawText()"
+                   onkeyup="drawText()">
+            <br>
+            <p> מספר תמונות:</p>
+            <input id="inputCount" type="number" value="5">
+
+            <br><br>
+            <input id="submitbtn" type="button" onclick="downloadImages()" value="לחץ להורדת תמונות">
+        </form>
+    </div>
+</div>
+<script src="index.js"></script>
+</body>
+</html>
