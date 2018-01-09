@@ -1,63 +1,60 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en-us">
-  <head>
-  <!--  <meta charset="UTF-8">
-    <title>Birds by racheliff</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <link rel='stylesheet prefetch' href='//codepen.io/assets/reset/reset.css'><link rel='stylesheet prefetch' href='//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'>-->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-touch.min.js"></script>-->
-   <!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">-->
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<script src="http://code.angularjs.org/1.2.9/angular.min.js" type="text/javascript"></script>
-<script src="http://code.angularjs.org/1.2.9/angular-animate.min.js"></script>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
- <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-  <!--	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
-   --> <script src="javascripts/main.js"></script>
-    
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Animals</h1>
-     
-      <a href="https://github.com/racheliff/RacheliRepository" class="btn">View on GitHub</a>
-      <a href="https://github.com/racheliff/RacheliRepository/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/racheliff/RacheliRepository/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src='https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js'></script>
+<link rel="stylesheet" type="text/css" href="index.css">
+<div class="container">
+    <div>
+        <div id="div1">
+            <canvas id="canvas">Sorry, no canvas available</canvas>
+        </div>
+        <div class="upload_form_cont">
+            <div id="fileinfo">
+                <div id="filename"></div>
+                <div id="filetype"></div>
+                <div id="filedim"></div>
+            </div>
+            <img id="preview"/>
+        </div>
+    </div>
+    <div >
+        <form >
+            <div><input type="file" name="image_file" id="image_file" onchange="fileSelected();" /></div>
+            <p>צבע ראשון:
+            </p>
+            <input id="c1" type="color" onchange="drawText()">
+            <br>
+            <p>צבע שני:</p>
+            <input id="c2" type="color">
+            <br>
+            <p>גובה:</p>
+            <input id="inputTop" type="number" value="-10" onmouseup="drawText()"
+                   onkeyup="drawText()">
+            <br>
+            <p> טקסט:</p>
 
-    <section class="main-content">
-      <div id="slides_control" ng-app="MyApp" ng-controller="DemoCtrl">
-      <slider images="images"/>
-    <!--  <carousel>
-        <slide ng-repeat="animale in animals" >
-          <table>
-            <tbody>
-            <tr>
-              <td ng-repeat="animaleGroup in animale.animaleGroup | slice:0:2">
-                <div class="animale_image">
-                  <img width="198px" height="198px" ng-src="{{animaleGroup.imageUrl}}">
-                  <h4><span>{{animaleGroup.id}}<br />{{animaleGroup.name}}</span></h4>
-                </div>
-              </td>
-            </tr>
-            <tr>
-             <td ng-repeat="animaleGroup in animale.animaleGroup | slice:2:4">
-                <div class="animale_image">
-                  <img width="198px" height="198px" ng-src="{{animaleGroup.imageUrl}}">
-                  <h4><span>{{animaleGroup.id}}<br />{{animaleGroup.name}}</span></h4>
-                </div>
-              </td>
-            </tr>
-            </tbody>
-          </table>
-        </slide>
-      </carousel>-->
-      </div>
-    </section>
-  </body>
+            <input id="inputText" type="text" value="הסרת שיער בהשתתפות קופת החולים" onkeyup="drawText()">
+            <br>
+            <p> פונט:</p>
+            <input id="inputFont" type="text" value="TYPOGRAPH2BLACK" onkeyup="drawText()">
+            <br>
+            <p>  גודל פונט:</p>
+            <input id="inputFontSize" type="number" value="44"
+                   onmouseup="drawText()"
+                   onkeyup="drawText()">
+            <br>
+            <p> מספר תמונות:</p>
+            <input id="inputCount" type="number" value="5">
+
+            <br><br>
+            <input id="submitbtn" type="button" onclick="downloadImages()" value="לחץ להורדת תמונות">
+        </form>
+    </div>
+</div>
+<script src="index.js"></script>
+</body>
 </html>
