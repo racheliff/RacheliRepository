@@ -19,7 +19,7 @@ function fileSelected() {
     var oImage = document.getElementById('preview');
     // prepare HTML5 FileReader
 
-    oReader.onload = function(e){
+    oReader.onloadend = function(e){
         // e.target.result contains the DataURL which we will use as a source of the image
         oImage.src = e.target.result;
         oImage.onload = function () { // binding onload event
