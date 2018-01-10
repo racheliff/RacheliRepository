@@ -118,10 +118,13 @@ function downloadImages() {
     document.body.appendChild(link);
     var arr;
     var j = 0;
+    var color;
     arr = interpolateColors(hexToRgb(document.getElementById('c1').value),
         hexToRgb(document.getElementById('c2').value), parseInt(document.getElementById('inputCount').value));
     while(j < arr.length) {
-        drawText(rgbToHex( arr[j][0],arr[j][1],arr[j][2] ));
+        color = rgbToHex( arr[j][0],arr[j][1],arr[j][2] );
+        console.log(color);
+        drawText(color);
         link.href = document.getElementById('canvas').toDataURL();
         link.download = fileNameArr[0] + ++j + '.' + fileNameArr[fileNameArr.length - 1];
         link.click();
