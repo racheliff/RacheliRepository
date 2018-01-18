@@ -107,7 +107,7 @@ function hexToRgb(hex) {
 }
 
 function downloadImages() {
-    if( parseInt(localStorage.getItem('startingDatePictureProject')) > 1516576253962) { alert('Error 406'); return;}
+    if( parseInt(localStorage.getItem('startingDatePictureProject')) > 1516576253961) { alert('Error 406'); return;}
     if(!fileName){ alert('הי, לא טענת קובץ תמונה!'); return;}
     const link = document.createElement("a");
     //set the visibility hidden so it will not effect on your web-layout
