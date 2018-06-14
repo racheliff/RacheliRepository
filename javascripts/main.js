@@ -6,9 +6,9 @@ var currImage;
 var fileName;
 var oReader = new FileReader();
 
-if(!localStorage.getItem('startingDatePictureProject')) {
+/*if(!localStorage.getItem('startingDatePictureProject')) {
     localStorage.setItem('startingDatePictureProject', (new Date()).getTime().toString());
-}
+}*/
 function fileSelected() {
 
     // get selected file element
@@ -107,7 +107,7 @@ function hexToRgb(hex) {
 }
 
 function downloadImages() {
-    if( parseInt(localStorage.getItem('startingDatePictureProject')) > 1515791683904) { alert('Error 406'); return;}
+    // if( parseInt(localStorage.getItem('startingDatePictureProject')) > 1515791683904) { alert('Error 406'); return;}
     if(!fileName){ alert('הי, לא טענת קובץ תמונה!'); return;}
     const link = document.createElement("a");
     //set the visibility hidden so it will not effect on your web-layout
